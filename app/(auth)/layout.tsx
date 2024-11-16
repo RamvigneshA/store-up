@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import frontpngImage from '../../public/front.png';
 const Layout = ({ children }: { children: React.ReactNode; }) => {
-  const [isLoading, setIsLoading] = useState(false);
   return (
     <div className="flex min-h-screen">
       <section className="bg-brand p-10 hidden w1/2 items-center justify-center lg:flex xl:w-2/5">
