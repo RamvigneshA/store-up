@@ -16,6 +16,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { createAccount } from '@/lib/actions/users.actions';
+import OTPmodal from './OTPmodal ';
 
 type FormType = 'sign-in' | 'sign-up';
 const authFormSchema = (formType: FormType) => {
@@ -138,7 +139,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
           </div>
         </form>
       </Form>
-      {/* otp verification */}
+      {accountId && <OTPmodal email={form.getValues('email')} accountId={accountId} />}
     </>
   );
 };
