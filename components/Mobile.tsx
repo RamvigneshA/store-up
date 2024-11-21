@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
-  SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
@@ -23,9 +21,9 @@ interface Props {
   avatar: string;
   email: string;
   accountId: string;
-  ownerId: string;
+  $id: string;
 }
-const Mobile = ({ fullName, avatar, email, accountId, ownerId }: Props) => {
+const Mobile = ({ fullName, avatar, email, accountId, $id }: Props) => {
   const [open, setOpen] = useState(false);
   const pathName = usePathname();
 
@@ -92,7 +90,7 @@ const Mobile = ({ fullName, avatar, email, accountId, ownerId }: Props) => {
           </nav>
           <Separator className="mb-4 bg-light-200" />
           <div className="flex flex-col justify-between gap-5">
-            <FileUploader />
+            <FileUploader ownerId={$id} accountId={accountId} />
             <Button
               type="submit"
               className="mobile-sign-out-button"

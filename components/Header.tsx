@@ -4,13 +4,16 @@ import Image from 'next/image';
 import FileUploader from './FileUploader';
 import Search from './Search';
 import { signOutUser } from '@/lib/actions/users.actions';
-
-const Header = () => {
+interface Props {
+  userId: string;
+  accountId: string;
+}
+const Header = ({ userId,accountId }: Props) => {
   return (
     <header className="header">
       <Search/>
       <div className="header-wrapper">
-        <FileUploader/>
+        <FileUploader ownerId={userId} accountId={accountId}  />
         <form action={async () => {
           "use server";
           await signOutUser();
