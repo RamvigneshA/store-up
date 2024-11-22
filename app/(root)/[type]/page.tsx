@@ -1,5 +1,7 @@
+import Card from '@/components/Card';
 import Sort from '@/components/Sort';
 import { getFiles } from '@/lib/actions/files.actions';
+import { getFileTypesParams } from '@/lib/utils';
 import { Section } from 'lucide-react';
 import { Models } from 'node-appwrite';
 
@@ -7,10 +9,11 @@ interface SearchParamProps {
   params?: Promise<SegmentParams>;
   searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
-
+type FileType = "document" | "image" | "video" | "audio" | "other";
 const Page = async ({ params }: SearchParamProps) => {
   const type = ((await params)?.type as string) || '';
-  const files = await getFiles();
+  const types = getFileTypesParams(type) as FileType[];
+  const files = await getFiles({types});
   return (
     <div className="page-container">
       <section className="w-full">
@@ -30,9 +33,7 @@ const Page = async ({ params }: SearchParamProps) => {
       {files.total > 0 ? (
         <section className="file-list">
           {files.documents.map((file: Models.Document) => (
-            <h1 key={file.$id} className="h1">
-              {file.$id}
-            </h1>
+            <Card key={file.$id} file={file} />
           ))}
         </section>
       ) : (
