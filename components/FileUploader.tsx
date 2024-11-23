@@ -23,7 +23,7 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
   const { toast } = useToast();
   const [files, setFiles] = useState<File[]>([]);
 
-  const onDrop = useCallback(
+  const hanldeUpload = useCallback(
     async (acceptedFiles: File[]) => {
       setFiles(acceptedFiles);
 
@@ -60,7 +60,8 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
     [ownerId, accountId, path],
   );
 
-  const { getRootProps, getInputProps } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps } = useDropzone({ onDrop: hanldeUpload });
+  console.log(getRootProps(), getInputProps());
 
   const handleRemoveFile = (
     e: React.MouseEvent<HTMLImageElement, MouseEvent>,

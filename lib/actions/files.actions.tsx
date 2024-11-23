@@ -82,7 +82,7 @@ export const uploadFile = async ({
         handleError(error, "Failed to create file document");
       });
 
-    revalidatePath(path);
+    // revalidatePath(path);
     return parseStringify(newFile);
   } catch (error) {
     handleError(error, "Failed to upload file");
@@ -118,9 +118,9 @@ const createQueries = (
 };
 type FileType = 'document' | 'image' | 'video' | 'audio' | 'other';
  interface GetFilesProps {
-  types: FileType[];
-  searchText: string;
-  sort: string;
+  types?: FileType[];
+  searchText?: string;
+  sort?: string;
   limit?: number;
 }
 export const getFiles = async ({types=[],searchText="",sort= "$createdAt-desc",limit}:GetFilesProps) => {
@@ -243,9 +243,9 @@ export async function getTotalSpaceUsed() {
       used: 0,
       all: 2 * 1024 * 1024 * 1024 /* 2GB available bucket storage */,
     };
-
+ 
     files.documents.forEach((file) => {
-      const fileType = file.type as FileType;
+      const fileType = file.type as "document" | "image" | "video" | "audio" | "other";
       totalSpace[fileType].size += file.size;
       totalSpace.used += file.size;
 
@@ -255,7 +255,11 @@ export async function getTotalSpaceUsed() {
       ) {
         totalSpace[fileType].latestDate = file.$updatedAt;
       }
-    });
+    }
+    
+    
+    );
+    
 
     return parseStringify(totalSpace);
   } catch (error) {

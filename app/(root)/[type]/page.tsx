@@ -1,8 +1,6 @@
 import Card from '@/components/Card';
-import Sort from '@/components/Sort';
 import { getFiles } from '@/lib/actions/files.actions';
 import { getFileTypesParams } from '@/lib/utils';
-import { Section } from 'lucide-react';
 import { Models } from 'node-appwrite';
 
 interface SearchParamProps {
@@ -10,6 +8,7 @@ interface SearchParamProps {
   searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 type FileType = "document" | "image" | "video" | "audio" | "other";
+
 const Page = async ({ params ,searchParams}: SearchParamProps) => {
   const type = ((await params)?.type as string) || '';
   const searchText = ((await searchParams)?.query as string) || "";

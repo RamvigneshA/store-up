@@ -18,14 +18,16 @@ const Header = ({ userId,accountId }: Props) => {
           "use server";
           await signOutUser();
         }}>
-          <Button type="submit" className="sign-out-button" >
+          <Button type="submit" className="sign-out-button "  >
+          
             <Image
               src="/assets/icons/logout.svg"
               alt="logo"
-              width={24}
-              height={24}
-              className="w-6"
+              width={20}
+              height={20}
+              className="ml-2 w-6 "
             />
+          <p className='mr-2'> logout</p>
           </Button>
         </form>
       </div>
