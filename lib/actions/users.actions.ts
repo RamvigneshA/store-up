@@ -79,8 +79,8 @@ export const verifySecret = async ({
 
     cook.set("appwrite-session", session.secret, {
       path: "/",
-      // httpOnly: true,
-      // sameSite: "strict",
+      httpOnly: true,
+      sameSite: "none",
       secure: true,
     });
     console.log("🚀 ~ cook:", cook);
