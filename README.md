@@ -22,8 +22,7 @@ A Cloud Storage Solution for Your Files
 **Organize Files:** Create folders to organize your files.
 ## Screenshots
 
-![App Screenshot]()
-![App Screenshot]()
+![App Screenshot](https://github.com/RamvigneshA/store-up/blob/main/Untitled%20Project%20(1).jpg?raw=true)
 ![App Screenshot]()
 
 
