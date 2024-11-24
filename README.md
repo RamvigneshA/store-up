@@ -23,7 +23,7 @@ A Cloud Storage Solution for Your Files
 ## Screenshots
 
 ![App Screenshot](https://github.com/RamvigneshA/store-up/blob/main/Untitled%20Project%20(1).jpg?raw=true)
-![App Screenshot]()
+![App Screenshot](https://github.com/RamvigneshA/store-up/blob/main/Untitled%20Project.jpg?raw=true)
 
 
 
