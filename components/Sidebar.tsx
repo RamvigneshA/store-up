@@ -40,12 +40,12 @@ const Sidebar = ({ fullName, email }: Props) => {
       </Link>
 
       <nav className="sidebar-nav">
-        <ul className="flex flex-1 flex-col gap-6">
+        <ul className="flex flex-1 flex-col gap-6 ">
           {navItems.map(({ url, name, icon }) => (
-            <Link key={name} href={url} className="lg:w-full">
+            <Link key={name} href={url} className="lg:w-full ">
               <li
                 className={cn(
-                  "sidebar-nav-item",
+                  "sidebar-nav-item hover:bg-emerald-200",
                   pathname === url && "shad-active",
                 )}
               >
@@ -59,7 +59,7 @@ const Sidebar = ({ fullName, email }: Props) => {
                     pathname === url && "nav-icon-active",
                   )}
                 />
-                <p className="hidden lg:block">{name}</p>
+                <p className="hidden lg:block ">{name}</p>
               </li>
             </Link>
           ))}
