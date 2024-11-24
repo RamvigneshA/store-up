@@ -42,9 +42,11 @@ const OtpModal = ({
       const sessionId = await verifySecret({ accountId, password });
       if (sessionId) {
         router.push("/");
+        console.log('Failed to verify OTP 1');
+
       } else {
         router.push("/");
-        console.log("Failed to verify OTP");
+        console.log('Failed to verify OT P 2');
       }
     } catch (error) {
       console.log("Failed to verify OTP", error);
