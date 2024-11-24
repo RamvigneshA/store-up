@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { avatarPlaceholderUrl, navItems } from "@/constants/index";
+import {  navItems } from "@/constants/index";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
@@ -13,27 +13,30 @@ interface Props {
   email: string;
 }
 
-const Sidebar = ({ fullName, avatar, email }: Props) => {
+const Sidebar = ({ fullName, email }: Props) => {
   const pathname = usePathname();
 
   return (
-    <aside className="sidebar">
+    <aside className="sidebar ">
       <Link href="/">
         <Image
-          src="/assets/icons/logo-full-brand.svg"
+          src="/assets/icons/LOGO.png"
           alt="logo"
-          width={160}
+          width={60}
           height={50}
           className="hidden h-auto lg:block"
         />
+        <span className="hidden h-auto lg:block pl-2">Drive</span>
 
         <Image
-          src="/assets/icons/logo-brand.svg"
+          src="/assets/icons/LOGO.png"
           alt="logo"
           width={52}
           height={52}
           className="lg:hidden"
         />
+        <span className="lg:hidden pl-1">Drive</span>
+
       </Link>
 
       <nav className="sidebar-nav">
@@ -64,24 +67,18 @@ const Sidebar = ({ fullName, avatar, email }: Props) => {
       </nav>
 
       <Image
-        src="/assets/images/files-2.png"
+        src="/assets/icons/FILE.png"
         alt="logo"
-        width={506}
-        height={418}
+        width={106}
+        height={118}
         className="w-full"
       />
 
-      <div className="sidebar-user-info">
-        <Image
-          src={avatarPlaceholderUrl}
-          alt="Avatar"
-          width={44}
-          height={44}
-          className="sidebar-user-avatar"
-        />
+      <div className="sidebar-user-info pl-3">
+       
         <div className="hidden lg:block">
           <p className="subtitle-2 capitalize">{fullName}</p>
-          <p className="caption">{email}</p>
+          <p className="text-xs">{email}</p>
         </div>
       </div>
     </aside>

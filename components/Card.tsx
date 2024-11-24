@@ -7,7 +7,7 @@ import ActionDropdown from "./ActionDropdown";
 
 const Card = ({ file }: { file: Models.Document }) => {
   return (
-    <Link href={file.url} target="_blank" className="file-card">
+    <Link href={file.url} target="_blank" className="file-card ">
       <div className="flex justify-between">
         <Thumbnail
           type={file.type}
@@ -24,12 +24,12 @@ const Card = ({ file }: { file: Models.Document }) => {
       </div> 
 
       <div className="file-card-details">
-        <p className="subtitle-2 line-clamp-1">{file.name}</p>
+        <p className="subtitle-2 line-clamp">{file.name}</p>
         <FormattedDateTime
           date={file.$createdAt}
           className="body-2 text-light-100"
         />
-        <p className="caption line-clamp-1 text-light-200">
+        <p className="caption line-clamp-1 text-zinc-800">
           By: {file.owner.fullName}
         </p>
       </div>

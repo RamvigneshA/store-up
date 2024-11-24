@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Models } from "node-appwrite";
 
@@ -7,7 +6,7 @@ import { FormattedDateTime } from "@/components/FormattedDateTime";
 import { Thumbnail } from "@/components/Thumbnail";
 import { Separator } from "@/components/ui/separator";
 import { convertFileSize, getUsageSummary, } from "@/lib/utils";
-import { Chart } from "@/components/Charts";
+// import { Chart } from "@/components/Charts";
 import { getFiles, getTotalSpaceUsed } from "@/lib/actions/files.actions";
 
 const Dashboard = async () => {
@@ -21,7 +20,7 @@ const Dashboard = async () => {
   const usageSummary = getUsageSummary(totalSpace);
 
   return (
-    <div className="dashboard-container">
+    <div className="dashboard-container ">
       <section>
         {/* <Chart used={totalSpace.used} /> */}
 
@@ -31,17 +30,11 @@ const Dashboard = async () => {
             <Link
               href={summary.url}
               key={summary.title}
-              className="dashboard-summary-card"
+              className="inverted-radius  p-5"
             >
-              <div className="space-y-4">
-                <div className="flex justify-between gap-3">
-                  <Image
-                    src={summary.icon}
-                    width={100}
-                    height={100}
-                    alt="uploaded image"
-                    className="summary-type-icon"
-                  />
+              <div className="space-y-4 ">
+                <div className="flex justify-between gap-3 " >
+                 
                   <h4 className="summary-type-size">
                     {convertFileSize(summary.size) || 0}
                   </h4>
@@ -51,7 +44,7 @@ const Dashboard = async () => {
                 <Separator className="bg-light-400" />
                 <FormattedDateTime
                   date={summary.latestDate}
-                  className="text-center"
+                  className="text-center text-black"
                 />
               </div>
             </Link>
@@ -68,7 +61,7 @@ const Dashboard = async () => {
               <Link
                 href={file.url}
                 target="_blank"
-                className="flex items-center gap-3"
+                className="flex items-center gap-3  bg-green p-2 border-r-4 rounded-xl"
                 key={file.$id}
               >
                 <Thumbnail
@@ -79,10 +72,10 @@ const Dashboard = async () => {
 
                 <div className="recent-file-details">
                   <div className="flex flex-col gap-1">
-                    <p className="recent-file-name">{file.name}</p>
+                    <p className="  text-black">{file.name}</p>
                     <FormattedDateTime
                       date={file.$createdAt}
-                      className="caption"
+                      className="caption text-white-600"
                     />
                   </div>
                   <ActionDropdown file={file} />

@@ -23,19 +23,22 @@ interface Props {
   accountId: string;
   $id: string;
 }
-const Mobile = ({ fullName, avatar, email, accountId, $id }: Props) => {
+const Mobile = ({ fullName, email, accountId, $id }: Props) => {
   const [open, setOpen] = useState(false);
   const pathName = usePathname();
 
   return (
     <header className="mobile-header">
-      <Image
-        src="/assets/icons/logo-full-brand.svg"
-        alt="logo"
-        width={120}
-        height={52}
-        className="h-auto"
-      />
+      <div>
+        <Image
+          src="/assets/icons/LOGO.png"
+          alt="logo"
+          width={30}
+          height={30}
+          className="h-auto  mx-3 mt-3"
+        />
+        <span className='sm:font-extralight text-sm mx-2.5'>Drive</span>
+      </div>
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger>
           <Image
@@ -94,7 +97,7 @@ const Mobile = ({ fullName, avatar, email, accountId, $id }: Props) => {
             <Button
               type="submit"
               className="mobile-sign-out-button"
-              onClick={async() =>await signOutUser()}
+              onClick={async () => await signOutUser()}
             >
               <Image
                 src="/assets/icons/logout.svg"
