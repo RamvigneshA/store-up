@@ -85,7 +85,7 @@ export const verifySecret = async ({
     });
     console.log("🚀 ~ cook:", cook);
 
-    return parseStringify({ sessionId: session.$id });
+    return parseStringify({ sessionId: session.$id,token: session.secret });
   } catch (error) {
     handleError(error, "Failed to verify OTP");
   }
