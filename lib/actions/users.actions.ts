@@ -73,13 +73,17 @@ export const verifySecret = async ({
     const { account } = await createAdminClient();
 
     const session = await account.createSession(accountId, password);
+    console.log('session', session);
+    const cook = await cookies()
+    console.log("🚀 ~ cook:", cook);
 
-    (await cookies()).set("appwrite-session", session.secret, {
+    cook.set("appwrite-session", session.secret, {
       path: "/",
-      httpOnly: true,
-      sameSite: "strict",
+      // httpOnly: true,
+      // sameSite: "strict",
       secure: true,
     });
+    console.log("🚀 ~ cook:", cook);
 
     return parseStringify({ sessionId: session.$id });
   } catch (error) {
