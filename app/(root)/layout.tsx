@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { getCurrentUser } from '@/lib/actions/users.actions';
 import { redirect } from 'next/navigation';
 import React from 'react'
-
+export const dynamic = "force-dynamic";
 const layout = async ({ children }: { children: React.ReactNode; }) => {
   const currentUser = await getCurrentUser();
   if (!currentUser) return redirect("/sign-in");
